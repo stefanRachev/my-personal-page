@@ -1,9 +1,8 @@
-/* .container-home {
+.container-home {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   max-width: 100%;
   padding: 40px;
 }
@@ -79,4 +78,4 @@ h2 {
   h2 {
     font-size: 16px; 
   }
-} */
+}
