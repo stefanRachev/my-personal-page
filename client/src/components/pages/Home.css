@@ -60,22 +60,22 @@ h2 {
 
 @media screen and (min-width: 768px) {
   .container-home {
-    padding: 50px; 
+    padding: 50px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .container-home {
-    padding: 20px; 
+    padding: 20px;
   }
 }
 
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: 24px; 
+    font-size: 24px;
   }
 
   h2 {
-    font-size: 16px; 
+    font-size: 16px;
   }
 }
