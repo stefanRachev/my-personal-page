@@ -2,16 +2,6 @@
   background-color: #1d4ed8;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: green;
-  position: sticky;
-  top: 0;
- 
-}
-
 nav .menu {
   display: none;
   position: absolute;
@@ -28,6 +18,15 @@ nav .menu span {
   width: 100%;
   background-color: #fff;
   border-radius: 0.2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: green;
+  position: sticky;
+  top: 0;
 }
 
 nav .title {
