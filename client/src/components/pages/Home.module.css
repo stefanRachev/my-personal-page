@@ -78,3 +78,34 @@
     font-size: 16px;
   }
 }
+
+@media screen and (max-height: 800px) {
+  .containerHome {
+    padding: 20px;
+  }
+
+  .openingTitle {
+    font-size: 28px;
+  }
+
+  .descriptive {
+    font-size: 18px;
+  }
+
+  .pic {
+    max-height: 300px; /* Adjust height to ensure image is fully visible */
+    overflow: hidden;  /* Hide overflow to maintain layout */
+  }
+
+  .describeText {
+    margin-block: 10px;
+  }
+
+  .poster {
+    margin-block: 10px;
+  }
+
+  .pic {
+    margin-block: 10px;
+  }
+}

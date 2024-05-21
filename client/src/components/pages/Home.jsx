@@ -4,15 +4,11 @@ function Home() {
   return (
     <div className={styles.containerHome}>
       <div className={styles.poster}>
-        <h1 className={styles.openingTitle}>Hello this is my personal page</h1>
+        <h1 className={styles.openingTitle}>Hello, this is my personal page</h1>
       </div>
 
       <div className={styles.picImg}>
-        <img
-          className={styles.pic}
-          src="https://i.imgur.com/Zvr50Nj.jpg"
-          alt="my pic"
-        />
+        <img className={styles.pic} src="https://i.imgur.com/Zvr50Nj.jpg" alt="Описание на снимката" />
       </div>
 
       <div className={styles.describeText}>
@@ -26,4 +22,5 @@ function Home() {
 }
 
 export default Home;
+
 
