@@ -1,4 +1,4 @@
-.container-home {
+.containerHome {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,18 +18,18 @@
   height: auto;
 }
 
-.describe-text {
+.describeText {
   text-align: center;
 }
 
-h1 {
+.openingTitle{
   font-size: 36px;
   color: #ff6600;
   font-family: "Arial Black", sans-serif;
   animation: bounce 1s infinite alternate;
 }
 
-h2 {
+.descriptive {
   font-size: 20px;
   color: #333;
   font-family: "Arial", sans-serif;
@@ -59,23 +59,23 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
-  .container-home {
+  .containerHome {
     padding: 50px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .container-home {
+  .containerHome {
     padding: 20px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  h1 {
+  .openingTitle {
     font-size: 24px;
   }
 
-  h2 {
+  .descriptive {
     font-size: 16px;
   }
 }
