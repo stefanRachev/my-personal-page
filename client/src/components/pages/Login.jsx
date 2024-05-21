@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Login.module.css"
+import styles from "./Login.module.css";
 
 const formInitialState = {
   email: "",
@@ -43,6 +43,7 @@ function Login() {
         if (response.ok) {
           setMessage("Login successful!");
           setFormValues(formInitialState); // Optionally reset form here
+          setErrors({});
         } else {
           setMessage("Invalid email or password. Please try again.");
         }
@@ -56,31 +57,35 @@ function Login() {
     <>
       <h2 className={styles.title}>Login</h2>
       {message && <p className={styles.message}>{message}</p>}
-      <form onSubmit={logHandler} style={styles.form}>
+      <form onSubmit={logHandler} className={styles.form}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className={styles.label}>Email</label>
           <input
             type="email"
             id="email"
             name="email"
             value={formValues.email}
             onChange={formChangeHandler}
+            className={styles.input}
           />
           {errors.email && <span className={styles.error}>{errors.email}</span>}
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className={styles.label}>Password</label>
           <input
             type="password"
             id="password"
             name="password"
             value={formValues.password}
             onChange={formChangeHandler}
+            className={styles.input}
           />
-          {errors.password && <span className={styles.error}>{errors.password}</span>}
+          {errors.password && (
+            <span className={styles.error}>{errors.password}</span>
+          )}
         </div>
         <div>
-          <button type="submit">Login</button>
+          <button type="submit" className={styles.button}>Login</button>
         </div>
       </form>
     </>
@@ -88,3 +93,4 @@ function Login() {
 }
 
 export default Login;
+

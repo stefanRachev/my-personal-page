@@ -11,7 +11,7 @@ function Home() {
         <img
           className={styles.pic}
           src="https://i.imgur.com/Zvr50Nj.jpg"
-          alt="Описание на снимката"
+          alt="my pic"
         />
       </div>
 

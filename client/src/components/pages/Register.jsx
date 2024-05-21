@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from './Register.module.css';  // Импортиране на CSS модула
+import styles from "./Register.module.css";
 
 const formInitialState = {
   email: "",
@@ -50,7 +50,7 @@ function Register() {
         });
         if (response.ok) {
           setMessage("Registration successful!");
-          setFormValues(formInitialState); // Optionally reset form here
+          setFormValues(formInitialState);
         } else {
           setMessage("Registration failed. Please try again.");
         }
@@ -66,7 +66,9 @@ function Register() {
       {message && <p className={styles.message}>{message}</p>}
       <form onSubmit={logHandler} className={styles.form}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className={styles.label}>
+            Email
+          </label>
           <input
             type="email"
             id="email"
@@ -78,7 +80,9 @@ function Register() {
           {errors.email && <span className={styles.error}>{errors.email}</span>}
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className={styles.label}>
+            Password
+          </label>
           <input
             type="password"
             id="password"
@@ -87,10 +91,14 @@ function Register() {
             onChange={formChangeHandler}
             className={styles.input}
           />
-          {errors.password && <span className={styles.error}>{errors.password}</span>}
+          {errors.password && (
+            <span className={styles.error}>{errors.password}</span>
+          )}
         </div>
         <div>
-          <label htmlFor="repeatPassword">Repeat Password</label>
+          <label htmlFor="repeatPassword" className={styles.label}>
+            Repeat Password
+          </label>
           <input
             type="password"
             id="repeatPassword"
@@ -99,10 +107,14 @@ function Register() {
             onChange={formChangeHandler}
             className={styles.input}
           />
-          {errors.repeatPassword && <span className={styles.error}>{errors.repeatPassword}</span>}
+          {errors.repeatPassword && (
+            <span className={styles.error}>{errors.repeatPassword}</span>
+          )}
         </div>
         <div>
-          <label htmlFor="nickName">Name</label>
+          <label htmlFor="nickName" className={styles.label}>
+            Name
+          </label>
           <input
             type="text"
             id="nickName"
@@ -111,10 +123,14 @@ function Register() {
             onChange={formChangeHandler}
             className={styles.input}
           />
-          {errors.nickName && <span className={styles.error}>{errors.nickName}</span>}
+          {errors.nickName && (
+            <span className={styles.error}>{errors.nickName}</span>
+          )}
         </div>
         <div>
-          <button type="submit" className={styles.button}>Register</button>
+          <button type="submit" className={styles.button}>
+            Register
+          </button>
         </div>
       </form>
     </>
@@ -122,4 +138,3 @@ function Register() {
 }
 
 export default Register;
-
