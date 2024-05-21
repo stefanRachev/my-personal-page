@@ -73,7 +73,7 @@ function Register() {
             value={formValues.password}
             onChange={formChangeHandler}
           />
-          {errors.email && <span className="error">{errors.password}</span>}
+          {errors.password&& <span className="error">{errors.password}</span>}
         </div>
         <div>
           <label htmlFor="repeatPassword">Repeat Password</label>
@@ -84,7 +84,7 @@ function Register() {
             value={formValues.repeatPassword}
             onChange={formChangeHandler}
           />
-          {errors.email && (
+          {errors.repeatPassword && (
             <span className="error">{errors.repeatPassword}</span>
           )}
         </div>
@@ -97,7 +97,7 @@ function Register() {
             value={formValues.nickName}
             onChange={formChangeHandler}
           />
-          {errors.email && <span className="error">{errors.nickName}</span>}
+          {errors.nickName && <span className="error">{errors.nickName}</span>}
         </div>
         <div>
           <button type="submit">Register</button>
