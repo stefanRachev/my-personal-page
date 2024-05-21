@@ -1,9 +1,11 @@
-import "./Footer.css";
+import styles from './Footer.module.css';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p>&copy;2024 Stefan Rachev - Student Portfolio Project</p>
+    <footer className={styles.footer}>
+      <p className={styles.footerText}>
+        &copy;2024 Stefan Rachev - Student Portfolio Project
+      </p>
     </footer>
   );
 }
