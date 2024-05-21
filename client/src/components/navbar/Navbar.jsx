@@ -1,42 +1,54 @@
 import { Link, NavLink } from "react-router-dom";
-import "./Navbar.css";
 import { useState } from "react";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav>
-      <Link to="/" className="title">
+    <nav className={styles.nav}>
+      <Link to="/" className={styles.title}>
         Home
       </Link>
       <div
-        className="menu"
+        className={styles.menu}
         onClick={() => {
           setMenuOpen(!menuOpen);
         }}
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <span className={styles.menuSpan}></span>
+        <span className={styles.menuSpan}></span>
+        <span className={styles.menuSpan}></span>
       </div>
-      <ul className={menuOpen ? "open" : ""}>
-        <li>
-          <NavLink to="/register">Register</NavLink>
+      <ul className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}>
+        <li className={styles.navItem}>
+          <NavLink to="/register" className={styles.navLink}>
+            Register
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
+        <li className={styles.navItem}>
+          <NavLink to="/login" className={styles.navLink}>
+            Login
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/logout">Logout</NavLink>
+        <li className={styles.navItem}>
+          <NavLink to="/logout" className={styles.navLink}>
+            Logout
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/about">About</NavLink>
+        <li className={styles.navItem}>
+          <NavLink to="/about" className={styles.navLink}>
+            About
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/activities">Activities </NavLink>
+        <li className={styles.navItem}>
+          <NavLink to="/activities" className={styles.navLink}>
+            Activities
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
+        <li className={styles.navItem}>
+          <NavLink to="/contact" className={styles.navLink}>
+            Contact
+          </NavLink>
         </li>
       </ul>
     </nav>
@@ -44,3 +56,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
