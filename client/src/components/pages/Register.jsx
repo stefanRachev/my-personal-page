@@ -73,8 +73,7 @@ function Register() {
           />
         </div>
         <div>
-          <button>Register</button>
-
+          <button type="submit">Register</button>
           <input type="button" value="Reset" onClick={resetFormHandler} />
         </div>
       </form>
