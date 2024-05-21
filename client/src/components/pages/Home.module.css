@@ -1,3 +1,4 @@
+
 .containerHome {
   display: flex;
   flex-direction: column;
@@ -7,22 +8,22 @@
   padding: 40px;
 }
 
-.poster,
-.pic,
-.describe-text {
+.poster {
   margin-block: 20px;
 }
 
-.pic img {
+.pic {
+  margin-block: 20px;
   max-width: 100%;
   height: auto;
 }
 
 .describeText {
   text-align: center;
+  margin-block: 20px;
 }
 
-.openingTitle{
+.openingTitle {
   font-size: 36px;
   color: #ff6600;
   font-family: "Arial Black", sans-serif;
@@ -68,9 +69,7 @@
   .containerHome {
     padding: 20px;
   }
-}
 
-@media screen and (max-width: 767px) {
   .openingTitle {
     font-size: 24px;
   }
