@@ -5,17 +5,14 @@ const formInitialState = {
   password: "",
   repeatPassword: "",
   nickName: "",
-}
+};
 
 function Register() {
   const [formValues, setFormValues] = useState(formInitialState);
   const [errors, setErrors] = useState({});
 
- 
-
   const formChangeHandler = (e) => {
     setFormValues((state) => ({ ...state, [e.target.name]: e.target.value }));
-  
   };
 
   const validateForm = () => {
@@ -36,7 +33,8 @@ function Register() {
   };
 
   const resetFormHandler = () => {
-    setFormValues(formInitialState)
+    setFormValues(formInitialState);
+    setErrors({});
   };
 
   const logHandler = (e) => {
@@ -86,7 +84,9 @@ function Register() {
             value={formValues.repeatPassword}
             onChange={formChangeHandler}
           />
-          {errors.email && <span className="error">{errors.repeatPassword}</span>}
+          {errors.email && (
+            <span className="error">{errors.repeatPassword}</span>
+          )}
         </div>
         <div>
           <label htmlFor="nickName">Name</label>
