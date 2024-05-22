@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "./Register.module.css";
 
+const host = "http://localhost:3000";
+
 const formInitialState = {
   email: "",
   password: "",
@@ -41,7 +43,7 @@ function Register() {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch("/api/register", {
+        const response = await fetch(host + "/users/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 const express = require("express");
+const routes = require("./routes");
 const mongoose = require("mongoose");
 const PORT = 3000;
 
@@ -18,5 +19,11 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.get("/", (req, res) => {
+  res.send("test ok");
+});
+
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}....`));
