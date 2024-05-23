@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Register.module.css";
 
-const host = "http://localhost:3000";
+const host = "http://localhost:3001";
 
 const formInitialState = {
   email: "",
