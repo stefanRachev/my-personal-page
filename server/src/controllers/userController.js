@@ -3,24 +3,28 @@ const userService = require("../services/userService");
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, password, nickName } = req.body;
-    
-    await userService.register({ email, password, nickName });
-    res.send({ message: "Registered successfully" });
+    const { email, password,nickName } = req.body;
+    const result = await userService.register({ email, password, nickName });
+
+    res.json(result);
   } catch ({ message }) {
     res.status(400).json({ message });
   }
 });
 
-router.post("/login",async(req,res)=>{
+router.post("/login", async (req, res) => {
   try {
-    const { email, password, } = req.body;
-    
-    await userService.login({ email, password});
-    res.send({ message: "LoggedIn successfully" });
+    const { email, password } = req.body;
+    const result = await userService.login({ email, password });
+
+    res.json(result);
   } catch ({ message }) {
     res.status(400).json({ message });
   }
-})
+});
+
+router.get("/logout", (req, res) => {
+  res.end(); // TODO: check if the token is valid
+});
 
 module.exports = router;
