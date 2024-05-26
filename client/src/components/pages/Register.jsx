@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Register.module.css";
+//import useForm from "../../hooks/useForm";
 
 const host = "http://localhost:3001";
 
@@ -11,6 +12,9 @@ const formInitialState = {
 };
 
 function Register() {
+
+  //const { values, onChange, onSubmit } = useForm();
+
   const [formValues, setFormValues] = useState(formInitialState);
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
