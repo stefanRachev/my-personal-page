@@ -3,8 +3,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Register.module.css";
 
 
-//import useForm from "../../hooks/useForm";
-
 const host = "http://localhost:3001";
 
 const formInitialState = {
@@ -17,7 +15,6 @@ const formInitialState = {
 function Register() {
 const {login} = useAuth()
 
-  //const { values, onChange, onSubmit } = useForm();
 
   const [formValues, setFormValues] = useState(formInitialState);
   const [errors, setErrors] = useState({});

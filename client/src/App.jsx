@@ -10,17 +10,8 @@ import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
 import { AuthProvider } from "./contexts/AuthContext";
-AuthProvider;
-
-//import { useState } from "react";
 
 function App() {
-  //const [auth, setAuth] = useState({});
-
-  // const loginSubmitHandler = (values) => {
-  //   console.log(values);
-  // };
-
   return (
     <AuthProvider>
       <div className="container">

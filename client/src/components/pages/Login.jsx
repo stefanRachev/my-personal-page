@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Login.module.css";
-//import { useAuth } from "../../contexts/AuthContext";
+
+const host = "http://localhost:3001";
 
 const formInitialState = {
   email: "",
@@ -8,7 +10,7 @@ const formInitialState = {
 };
 
 function Login() {
-  //const { login } = useAuth();
+  const { login } = useAuth();
 
   const [formValues, setFormValues] = useState(formInitialState);
   const [errors, setErrors] = useState({});
@@ -36,7 +38,7 @@ function Login() {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch("/api/login", {
+        const response = await fetch(host + "/users/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -44,11 +46,11 @@ function Login() {
           body: JSON.stringify(formValues),
         });
         if (response.ok) {
-          //const data = await response.json();
-          //login(data.user);
+          const data = await response.json();
+          login(data);
 
           setMessage("Login successful!");
-          setFormValues(formInitialState); 
+          setFormValues(formInitialState);
           setErrors({});
         } else {
           setMessage("Invalid email or password. Please try again.");
