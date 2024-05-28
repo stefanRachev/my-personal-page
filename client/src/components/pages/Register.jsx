@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Register.module.css";
+
+
 //import useForm from "../../hooks/useForm";
 
 const host = "http://localhost:3001";
@@ -12,6 +15,7 @@ const formInitialState = {
 };
 
 function Register() {
+const {login} = useAuth()
 
   //const { values, onChange, onSubmit } = useForm();
 
@@ -55,6 +59,8 @@ function Register() {
           body: JSON.stringify(formValues),
         });
         if (response.ok) {
+          const data = await response.json();
+          login(data);
           setMessage("Registration successful!");
           setFormValues(formInitialState);
         } else {

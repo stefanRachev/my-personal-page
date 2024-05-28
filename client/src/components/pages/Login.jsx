@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
+//import { useAuth } from "../../contexts/AuthContext";
 
 const formInitialState = {
   email: "",
@@ -7,6 +8,8 @@ const formInitialState = {
 };
 
 function Login() {
+  //const { login } = useAuth();
+
   const [formValues, setFormValues] = useState(formInitialState);
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
@@ -41,8 +44,11 @@ function Login() {
           body: JSON.stringify(formValues),
         });
         if (response.ok) {
+          //const data = await response.json();
+          //login(data.user);
+
           setMessage("Login successful!");
-          setFormValues(formInitialState); // Optionally reset form here
+          setFormValues(formInitialState); 
           setErrors({});
         } else {
           setMessage("Invalid email or password. Please try again.");
@@ -59,7 +65,9 @@ function Login() {
       {message && <p className={styles.message}>{message}</p>}
       <form onSubmit={logHandler} className={styles.form}>
         <div>
-          <label htmlFor="email" className={styles.label}>Email</label>
+          <label htmlFor="email" className={styles.label}>
+            Email
+          </label>
           <input
             type="email"
             id="email"
@@ -71,7 +79,9 @@ function Login() {
           {errors.email && <span className={styles.error}>{errors.email}</span>}
         </div>
         <div>
-          <label htmlFor="password" className={styles.label}>Password</label>
+          <label htmlFor="password" className={styles.label}>
+            Password
+          </label>
           <input
             type="password"
             id="password"
@@ -85,7 +95,9 @@ function Login() {
           )}
         </div>
         <div>
-          <button type="submit" className={styles.button}>Login</button>
+          <button type="submit" className={styles.button}>
+            Login
+          </button>
         </div>
       </form>
     </>
@@ -93,4 +105,3 @@ function Login() {
 }
 
 export default Login;
-

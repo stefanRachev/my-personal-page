@@ -1,8 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import styles from "./Navbar.module.css";
+import { useAuth } from "../../contexts/AuthContext";
+
+
 
 function Navbar() {
+const {user ,logout} = useAuth();
+
+console.log("Logged in user:", user);
+
+
+
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className={styles.nav}>

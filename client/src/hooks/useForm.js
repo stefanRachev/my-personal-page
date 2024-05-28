@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 export default function useForm(submitHandler, initialValues) {
-  const [values, setValues] = useState(initialValues);
+  const [formValues, setFormValues] = useState(initialValues);
 
   const onChange = (e) => {
-    setValues((state) => ({
+    setFormValues((state) => ({
       ...state,
       [e.target.name]: e.target.value,
     }));
@@ -12,10 +12,10 @@ export default function useForm(submitHandler, initialValues) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    submitHandler(values);
+    submitHandler(formValues);
   };
   return {
-    values,
+    formValues,
     onChange,
     onSubmit,
   };
