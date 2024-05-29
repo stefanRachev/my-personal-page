@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 
 function Navbar() {
-const {user ,logout} = useAuth();
+const {user} = useAuth();
 
 console.log("Logged in user:", user);
 

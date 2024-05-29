@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 
 exports.auth = (req, res, next) => {
-  //const token = req.cookies.accessToken;  // Търсим токена в cookies
-  const token = req.header("X-Authorization");
+  const token = req.cookies.accessToken;
+ 
 
   if (token) {
     try {

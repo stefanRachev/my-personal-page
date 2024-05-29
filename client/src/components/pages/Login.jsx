@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Login.module.css";
 
@@ -10,6 +11,7 @@ const formInitialState = {
 };
 
 function Login() {
+  const navigate = useNavigate();
   const { login } = useAuth();
 
   const [formValues, setFormValues] = useState(formInitialState);
@@ -48,10 +50,14 @@ function Login() {
         if (response.ok) {
           const data = await response.json();
           login(data);
+          sessionStorage.setItem('accessToken', data.accessToken);
+
 
           setMessage("Login successful!");
           setFormValues(formInitialState);
           setErrors({});
+
+          navigate("/");
         } else {
           setMessage("Invalid email or password. Please try again.");
         }

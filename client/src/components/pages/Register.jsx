@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Register.module.css";
-
 
 const host = "http://localhost:3001";
 
@@ -13,8 +13,8 @@ const formInitialState = {
 };
 
 function Register() {
-const {login} = useAuth()
-
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [formValues, setFormValues] = useState(formInitialState);
   const [errors, setErrors] = useState({});
@@ -60,6 +60,9 @@ const {login} = useAuth()
           login(data);
           setMessage("Registration successful!");
           setFormValues(formInitialState);
+
+          sessionStorage.setItem('accessToken', data.accessToken);
+          navigate("/");
         } else {
           setMessage("Registration failed. Please try again.");
         }
