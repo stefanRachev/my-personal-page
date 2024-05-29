@@ -55,6 +55,13 @@ nav {
   border-radius: 0.5rem;
 }
 
+.userField {
+  font-weight: bold;
+  color: #ff6347; /* Отличителен цвят за по-голяма видимост */
+  margin-right: 20px; /* Регулирайте според нуждите за разстояние */
+  
+}
+
 .navLink:not(.active):hover {
   background-color: #172554;
 }

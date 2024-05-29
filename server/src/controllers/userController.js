@@ -38,7 +38,6 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
   res.clearCookie("authToken");
   res.json({ message: "Logged out successfully" });
-  //res.end(); // TODO: check if the token is valid
 });
 
 module.exports = router;
