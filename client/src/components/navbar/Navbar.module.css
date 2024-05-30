@@ -40,6 +40,7 @@ nav {
 
 .navList {
   display: flex;
+  align-items: center ;
 }
 
 .navItem {
@@ -53,13 +54,16 @@ nav {
   padding: 0.5rem;
   margin: 0 0.5rem;
   border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .userField {
   font-weight: bold;
-  color: #ff6347; /* Отличителен цвят за по-голяма видимост */
-  margin-right: 20px; /* Регулирайте според нуждите за разстояние */
-  
+  color: #ff6347; 
+  margin-right: 20px; 
+  display: flex;
+  align-items: center ;
 }
 
 .navLink:not(.active):hover {
@@ -89,6 +93,10 @@ nav {
   }
   .navLink {
     margin: 0.2rem 0.5rem;
+  }
+  .userField {
+    margin: 0.5rem 1rem; 
+    order: -1; 
   }
 }
 

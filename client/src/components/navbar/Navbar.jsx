@@ -29,7 +29,7 @@ function Navbar() {
       <ul className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}>
         <li className={styles.navItem}>
           <span className={styles.userField}>
-            {user ? `Добре дошъл, ${user.username}` : "Гост"}
+            {user ? `Добре дошъл, ${user.nickName}` : "Гост"}
           </span>
         </li>
         {user && (
