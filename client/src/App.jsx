@@ -24,7 +24,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/about" element={<AboutMe />} />
+            <Route path="/about-me" element={<AboutMe />} />
             <Route path="/activities" element={<Activities />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

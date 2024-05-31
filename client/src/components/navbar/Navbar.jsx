@@ -40,7 +40,7 @@ function Navbar() {
               </NavLink>
             </li>
             <li className={styles.navItem}>
-              <NavLink to="/about" className={styles.navLink}>
+              <NavLink to="/about-me" className={styles.navLink}>
                 About Me
               </NavLink>
             </li>
