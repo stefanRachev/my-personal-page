@@ -7,13 +7,19 @@ function AboutMe() {
       <section className={styles.section}>
         <h2 className={styles.subtitle}>Professional Summary</h2>
         <p>
-          I am a web developer with extensive experience in JavaScript and
-          related technologies. I have completed various modules at SoftUni,
-          including JavaScript Basics, Fundamentals, Advanced, Applications,
-          Node.js, Express, Express-Handlebars, MongoDB, Mongoose, HTML, CSS,
-          and React Client-Side Rendering. Additionally, I have basic knowledge
-          of Python, Git, and Linux. I actively maintain my LinkedIn and GitHub
-          profiles to showcase my projects and professional growth.
+          I am currently looking for a position as a web developer. I am a
+          creative and proactive person with a professional attitude and good
+          working habits. I am a web developer with a passion for growth in the
+          industry as a Full Stack Developer. I have actively participated in
+          various courses in the last two years to upgrade my skill set. My
+          current focus is on the JavaScript environment. I've knowledge of Git
+          and Linux and a basic knowledge of Python. I am still learning Python
+          with a passion for it. I am actively maintaining my LinkedIn and
+          GitHub profiles to present my projects and professional growth. I've
+          completed various modules at SoftUni, including: - JavaScript Basics -
+          Fundamentals - Advanced - Applications - Node.js - Express -
+          Express-Handlebars - MongoDB - Mongoose - HTML - CSS - React
+          Client-Side Rendering
         </p>
       </section>
       <section className={styles.section}>
@@ -50,7 +56,5 @@ function AboutMe() {
     </div>
   );
 }
-
-
 
 export default AboutMe;
