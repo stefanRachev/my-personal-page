@@ -12,10 +12,10 @@ function AboutMe() {
           working habits. I am a web developer with a passion for growth in the
           industry as a Full Stack Developer. I have actively participated in
           various courses in the last two years to upgrade my skill set. My
-          current focus is on the JavaScript environment. I've knowledge of Git
+          current focus is on the JavaScript environment. I&apos;ve knowledge of Git
           and Linux and a basic knowledge of Python. I am still learning Python
           with a passion for it. I am actively maintaining my LinkedIn and
-          GitHub profiles to present my projects and professional growth. I've
+          GitHub profiles to present my projects and professional growth. I&apos;ve
           completed various modules at SoftUni, including: - JavaScript Basics -
           Fundamentals - Advanced - Applications - Node.js - Express -
           Express-Handlebars - MongoDB - Mongoose - HTML - CSS - React

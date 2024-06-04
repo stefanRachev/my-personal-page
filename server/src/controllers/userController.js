@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
 
+
 router.post("/register", async (req, res) => {
   try {
     const { email, password, nickName } = req.body;
@@ -39,5 +40,7 @@ router.get("/logout", (req, res) => {
   res.clearCookie("authToken");
   res.json({ message: "Logged out successfully" });
 });
+
+
 
 module.exports = router;
