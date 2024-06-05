@@ -28,7 +28,7 @@ function Navbar() {
       <ul className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}>
         <li className={styles.navItem}>
           <span className={styles.userField}>
-            {user ? `Добре дошъл, ${user.nickName}` : "Гост"}
+            {user ? `Welcome, ${user.nickName}` : "Guest"}
           </span>
         </li>
         {user && (
@@ -53,12 +53,12 @@ function Navbar() {
         {!user && (
           <>
             <li className={styles.navItem}>
-              <NavLink to="/register" className={styles.navLink}>
+              <NavLink to="/users/register" className={styles.navLink}>
                 Register
               </NavLink>
             </li>
             <li className={styles.navItem}>
-              <NavLink to="/login" className={styles.navLink}>
+              <NavLink to="/users/login" className={styles.navLink}>
                 Login
               </NavLink>
             </li>

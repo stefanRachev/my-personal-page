@@ -18,6 +18,7 @@ exports.auth = (req, res, next) => {
 
 exports.isAuth = (req, res, next) => {
   if (!req.user) {
+    console.log(req.user);
     return res.redirect("/users/login");
   }
   next();

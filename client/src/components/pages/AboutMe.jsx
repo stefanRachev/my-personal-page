@@ -1,6 +1,16 @@
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import styles from "./AboutMe.module.css";
 
 function AboutMe() {
+  
+
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/users/login" />;
+  }
+
   return (
     <div className={styles.aboutContainer}>
       <h1 className={styles.title}>About Me</h1>
@@ -12,13 +22,13 @@ function AboutMe() {
           working habits. I am a web developer with a passion for growth in the
           industry as a Full Stack Developer. I have actively participated in
           various courses in the last two years to upgrade my skill set. My
-          current focus is on the JavaScript environment. I&apos;ve knowledge of Git
-          and Linux and a basic knowledge of Python. I am still learning Python
-          with a passion for it. I am actively maintaining my LinkedIn and
-          GitHub profiles to present my projects and professional growth. I&apos;ve
-          completed various modules at SoftUni, including: - JavaScript Basics -
-          Fundamentals - Advanced - Applications - Node.js - Express -
-          Express-Handlebars - MongoDB - Mongoose - HTML - CSS - React
+          current focus is on the JavaScript environment. I&apos;ve knowledge of
+          Git and Linux and a basic knowledge of Python. I am still learning
+          Python with a passion for it. I am actively maintaining my LinkedIn
+          and GitHub profiles to present my projects and professional growth.
+          I&apos;ve completed various modules at SoftUni, including: -
+          JavaScript Basics - Fundamentals - Advanced - Applications - Node.js -
+          Express - Express-Handlebars - MongoDB - Mongoose - HTML - CSS - React
           Client-Side Rendering
         </p>
       </section>

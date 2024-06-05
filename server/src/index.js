@@ -24,10 +24,13 @@ app.use((req, res, next) => {
 app.use(cookieParser());
 app.use(auth);
 
+//app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.get("/", (req, res) => {
   res.send("test ok");
 });
 
 app.use(routes);
+
 
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}....`));
