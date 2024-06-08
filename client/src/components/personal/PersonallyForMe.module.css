@@ -1,0 +1,27 @@
+.aboutMeContainer {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.link {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

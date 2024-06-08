@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Home from "./components/pages/Home";
-import Activities from "./components/pages/Activities";
+import PersonallyForMe from "./components/personal/PersonallyForMe";
 import Contact from "./components/pages/Contact";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
@@ -26,7 +26,10 @@ function App() {
             <Route path="/users/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/about-me" element={<AboutMe />} />
-            <Route path="/activities" element={<Activities />} />
+            <Route
+              path="/activities/personal-life-hobbies"
+              element={<PersonallyForMe />}
+            />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
