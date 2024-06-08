@@ -1,4 +1,4 @@
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -8,11 +8,11 @@ import Contact from "./components/pages/Contact";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
+import NotFound from "./components/pages/NotFound";
 import { AuthProvider } from "./contexts/AuthContext";
 import AboutMe from "./components/pages/AboutMe";
 
 function App() {
-
   return (
     <AuthProvider>
       <div className="container">
@@ -28,6 +28,7 @@ function App() {
             <Route path="/about-me" element={<AboutMe />} />
             <Route path="/activities" element={<Activities />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <div className="footer-container">
