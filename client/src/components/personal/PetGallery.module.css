@@ -1,0 +1,45 @@
+.petGallery {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-y: auto; /* Добавяме скрол само ако е необходимо */
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  .imageContainer {
+    position: relative;
+  }
+  
+  .image {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  }
+  
+  .imageDescription {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+  

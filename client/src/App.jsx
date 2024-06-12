@@ -11,6 +11,7 @@ import Logout from "./components/pages/Logout";
 import NotFound from "./components/pages/NotFound";
 import { AuthProvider } from "./contexts/AuthContext";
 import AboutMe from "./components/pages/AboutMe";
+import PetGallery from "./components/personal/PetGallery";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               path="/activities/personal-life-hobbies"
               element={<PersonallyForMe />}
             />
+            <Route path="/pet-gallery" element={<PetGallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

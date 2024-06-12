@@ -7,18 +7,19 @@ function PersonallyForMe() {
       <h2>About Me</h2>
 
       <div className={styles.section}>
-        <h3>My Pet - Fluffy</h3>
+        <h3>My Pet - Sara</h3>
         <img
-          src="https://i.imgur.com/pet1.jpg"
+          src="https://i.imgur.com/Or5SwCq.jpg"
           alt="Fluffy"
           className={styles.image}
         />
         <p>
-          Fluffy is my beloved pet cat. She loves to play and cuddle, and she
-          always brightens my day.
+          Sarah is my beloved dog, fate brought us together and since then we&apos;ve
+          been inseparable.
         </p>
-        <Link to="/comments/pet" className={styles.link}>
-          See Comments
+
+        <Link to="/pet-gallery" className={styles.link}>
+          View Pet Gallery
         </Link>
       </div>
 
@@ -62,8 +63,8 @@ function PersonallyForMe() {
           className={styles.image}
         />
         <p>
-          I live in a beautiful town surrounded by nature. Here&apos;s a view from my
-          favorite spot in town.
+          I live in a beautiful town surrounded by nature. Here&apos;s a view
+          from my favorite spot in town.
         </p>
         <Link to="/comments/hometown" className={styles.link}>
           See Comments
