@@ -1,45 +1,53 @@
 .petGallery {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow-y: auto; /* Добавяме скрол само ако е необходимо */
-  }
-  
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
   .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: 1fr; /* Една колона за по-малки екрани */
   }
-  
-  .imageContainer {
-    position: relative;
-  }
-  
-  .image {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .image:hover {
-    transform: scale(1.05);
-  }
-  
-  .imageDescription {
-    margin-top: 8px;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .link {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  
-  
-  
-  
-  
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 300px; /* Задаваме фиксирана височина */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Запълва снимката в контейнера равномерно */
+  transition: transform 0.2s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.imageDescription {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+}
+

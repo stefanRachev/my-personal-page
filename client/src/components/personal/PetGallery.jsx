@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+
 import styles from "./PetGallery.module.css";
+import CommentModal from "../modal/CommentModal";
+import { useState } from "react";
 
 function PetGallery() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const petImages = [
     {
       id: 1,
@@ -30,13 +34,25 @@ function PetGallery() {
     },
   ];
 
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className={styles.petGallery}>
       <h2>Pet Gallery</h2>
 
       <div className={styles.gallery}>
         {petImages.map((image) => (
-          <div key={image.id} className={styles.imageContainer}>
+          <div
+            key={image.id}
+            className={styles.imageContainer}
+            onClick={() => openModal(image)}
+          >
             <img
               src={image.imageUrl}
               alt={image.description}
@@ -47,9 +63,9 @@ function PetGallery() {
         ))}
       </div>
 
-      <Link to="/comments/pet" className={styles.link}>
-        See Comments
-      </Link>
+      {selectedImage && (
+        <CommentModal image={selectedImage} closeModal={closeModal} />
+      )}
     </div>
   );
 }
