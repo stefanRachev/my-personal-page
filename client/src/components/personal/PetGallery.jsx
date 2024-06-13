@@ -1,10 +1,13 @@
-
+import { useState, useEffect } from "react";
 import styles from "./PetGallery.module.css";
 import CommentModal from "../modal/CommentModal";
-import { useState } from "react";
+import { fetchComments, addComment } from "./services/apiService";
 
 function PetGallery() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
 
   const petImages = [
     {
@@ -34,12 +37,42 @@ function PetGallery() {
     },
   ];
 
+  useEffect(() => {
+    if (selectedImage) {
+      loadComments(selectedImage.id);
+    }
+  }, [selectedImage]);
+
+  const loadComments = async (imageId) => {
+    try {
+      const data = await fetchComments(imageId);
+      setComments(data);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   const openModal = (image) => {
     setSelectedImage(image);
   };
 
   const closeModal = () => {
     setSelectedImage(null);
+  };
+
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
+  };
+
+  const handleAddComment = async () => {
+    try {
+      const newComment = { imageId: selectedImage.id, text: comment };
+      const addedComment = await addComment(newComment);
+      setComments([...comments, addedComment]);
+      setComment("");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -64,7 +97,15 @@ function PetGallery() {
       </div>
 
       {selectedImage && (
-        <CommentModal image={selectedImage} closeModal={closeModal} />
+        <CommentModal
+        image={selectedImage}
+        comments={comments}
+        closeModal={closeModal}
+        handleCommentChange={handleCommentChange}
+        handleAddComment={handleAddComment}
+        comment={comment}
+        error={error}
+      />
       )}
     </div>
   );

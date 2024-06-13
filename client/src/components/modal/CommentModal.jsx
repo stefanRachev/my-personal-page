@@ -1,29 +1,19 @@
-import { useState } from "react";
-import styles from "./CommentModal.module.css";
 import PropTypes from "prop-types";
+import styles from "./CommentModal.module.css";
 
-const CommentModal = ({ image, closeModal }) => {
-  const [comment, setComment] = useState("");
-
-  const handleCommentChange = (e) => {
-    setComment(e.target.value);
-  };
-
-  const handleAddComment = () => {
-    // Логика за добавяне на коментар
-    console.log("Comment added:", comment);
-    setComment("");
-    closeModal();
-  };
-
+const CommentModal = ({
+  image,
+  comments,
+  closeModal,
+  handleCommentChange,
+  handleAddComment,
+  comment,
+  error,
+}) => {
   return (
     <div className={styles.modalBackdrop} onClick={closeModal}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <img
-          src={image.imageUrl}
-          alt={image.description}
-          className={styles.image}
-        />
+        <img src={image.imageUrl} alt={image.description} className={styles.image} />
         <p className={styles.imageDescription}>{image.description}</p>
         <div className={styles.commentSection}>
           <textarea
@@ -36,6 +26,19 @@ const CommentModal = ({ image, closeModal }) => {
           <button className={styles.commentButton} onClick={handleAddComment}>
             Add Comment
           </button>
+          {error && <p className={styles.error}>{error}</p>}
+        </div>
+        <div className={styles.commentsList}>
+          {comments.length > 0 ? (
+            comments.map((comment) => (
+              <div key={comment._id} className={styles.comment}>
+                <p>{comment.text}</p>
+                <span>by {comment.author}</span>
+              </div>
+            ))
+          ) : (
+            <p>No comments yet</p>
+          )}
         </div>
       </div>
     </div>
@@ -43,11 +46,13 @@ const CommentModal = ({ image, closeModal }) => {
 };
 
 CommentModal.propTypes = {
-  image: PropTypes.shape({
-    imageUrl: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
+  image: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired,
   closeModal: PropTypes.func.isRequired,
+  handleCommentChange: PropTypes.func.isRequired,
+  handleAddComment: PropTypes.func.isRequired,
+  comment: PropTypes.string.isRequired,
+  error: PropTypes.string,
 };
 
 export default CommentModal;
