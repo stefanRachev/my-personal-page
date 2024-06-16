@@ -1,53 +1,56 @@
 .petGallery {
-  padding: 20px;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  overflow-y: auto;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr; /* Една колона за по-малки екрани */
-  }
+  text-align: center;
 }
 
 .imageContainer {
   position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 300px; /* Задаваме фиксирана височина */
+  margin: 0 auto;
+  max-width: 800px; /* Примерна ширина, може да се промени */
 }
 
 .image {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover; /* Запълва снимката в контейнера равномерно */
-  transition: transform 0.2s ease-in-out;
-}
-
-.image:hover {
-  transform: scale(1.05);
+  margin: 0 auto;
+  max-height: 500px; /* Примерна максимална височина, може да се промени */
+  object-fit: contain; /* За да се запълни контейнера */
 }
 
 .imageDescription {
   margin-top: 8px;
   font-size: 14px;
-  text-align: center;
 }
 
-.link {
-  display: block;
-  margin-top: 20px;
-  text-align: center;
+.controls {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
 }
+
+.controlButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 4px;
+}
+
+.controlButton:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+  .controlButton {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+
+}
+
 
