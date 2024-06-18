@@ -20,7 +20,7 @@ function PersonallyForMe() {
 
         <Link to="/pet-gallery" className={styles.link}>
           View Pet Gallery
-        </Link>
+        </Link>                                     
       </div>
 
       <div className={styles.section}>

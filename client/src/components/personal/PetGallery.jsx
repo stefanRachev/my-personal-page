@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./PetGallery.module.css";
 
 const petImages = [
@@ -29,48 +28,20 @@ const petImages = [
   },
 ];
 
-const PetGallery = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? petImages.length - 1 : prevIndex - 1
-    );
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === petImages.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
+function PetGallery() {
   return (
-    <div className={styles.petGallery}>
-      <h2>Pet Gallery</h2>
-
-      <div className={styles.imageContainer}>
-        <img
-          src={petImages[currentImageIndex].imageUrl}
-          alt={petImages[currentImageIndex].description}
-          className={styles.image}
-        />
-        <p className={styles.imageDescription}>
-          {petImages[currentImageIndex].description}
-        </p>
-      </div>
-
-      <div className={styles.controls}>
-        <button className={styles.controlButton} onClick={prevImage}>
-          Previous
-        </button>
-        <button className={styles.controlButton} onClick={nextImage}>
-          Next
-        </button>
-      </div>
+    <div className={styles.imageGallery}>
+      {petImages.map((image) => (
+        <div key={image.id} className={styles.imageContainer}>
+          <img
+            src={image.imageUrl}
+            alt={image.description}
+            className={styles.image}
+          />
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default PetGallery;
-
-
