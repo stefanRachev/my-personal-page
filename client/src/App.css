@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  height: 100%; /* Добавено */
+  height: 100%; 
 }
 
 .main-container {
@@ -11,7 +11,8 @@
   height: 100%;
   margin: 0 auto;
   padding: 20px;
-  display: flex; /* Добавено */
-  flex-direction: column; /* Добавено */
+  display: flex; 
+  flex-direction: column; 
+  overflow: auto;
 }
 

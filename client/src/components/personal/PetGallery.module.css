@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Позволява на контейнерите да се разпределят в редове */
-  gap: 10px; /* Разстояние между изображенията */
+  flex-wrap: wrap; 
+  padding-bottom: 20px; 
 }
 
 .imageContainer {
@@ -20,13 +20,13 @@
   object-fit: cover;
 }
 
-/* Медиазапитвания */
+
 @media all and (max-width: 768px) {
   .imageContainer {
-    width: 100%;
+    width: calc(100% - 10px);
     max-width: 100%;
-    height: 400px; /* Намалена височина за малки екрани */
-    margin: 5px 0; /* Намалено разстояние между контейнерите */
+    height: 400px; 
+    margin: 5px 0; 
   }
   .image {
     width: 100%;
@@ -37,10 +37,10 @@
 
 @media all and (max-width: 480px) {
   .imageContainer {
-    width: 100%;
+    width: calc(100% - 10px);
     max-width: 100%;
-    height: 350px; /* Още по-малка височина за още по-малки екрани */
-    margin: 5px 0; /* Намалено разстояние между контейнерите */
+    height: 350px; 
+    margin: 5px 0; 
   }
   .image {
     width: 100%;
@@ -48,3 +48,4 @@
     object-fit: cover;
   }
 }
+
