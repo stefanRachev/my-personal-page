@@ -1,7 +1,10 @@
 import styles from "./Modal.module.css";
 import PropTypes from "prop-types";
+import CommentForm from "../commentForm/CommentForm";
 
-const Modal = ({ isOpen, onClose, image, comments }) => {
+const Modal = ({ isOpen, onClose, image, comments, userName }) => {
+  console.log("Modal props:", { isOpen, onClose, image, comments,userName }); // Log props passed to Modal
+
   if (!isOpen) return null;
 
   return (
@@ -32,6 +35,16 @@ const Modal = ({ isOpen, onClose, image, comments }) => {
               <p>No comments available</p>
             )}
           </ul>
+          {image && (
+            <CommentForm
+              imageId={image.id}
+              onSubmit={(comment) => {
+                // Handle the submit logic here or pass it down as a prop
+                console.log("Comment submitted from Modal:", comment);
+              }}
+              userName={userName}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -43,6 +56,7 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   image: PropTypes.object,
   comments: PropTypes.arrayOf(PropTypes.string),
+  userName: PropTypes.string.isRequired,
 };
 
 export default Modal;

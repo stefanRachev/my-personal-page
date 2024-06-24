@@ -1,28 +1,27 @@
 const router = require("express").Router();
+const Comment = require("../models/Comment");
+const User = require("../models/User");
 
-const { getComments, addComment } = require("../services/commentService");
-const { isAuth } = require("../middlewares/authMiddleware");
+router.post("/", async (req, res) => {
+  const { user: userId, text, imageUrl } = req.body;
 
-router.get("/:imageId", async (req, res) => {
   try {
-    const { imageId } = req.params;
-    const comments = await getComments(imageId);
-    res.json(comments);
-  } catch (error) {
-    console.error("Error fetching comments:", error.message);
-    res.status(500).json({ message: "Server error" });
-  }
-});
+    const userExists = await User.exists({ _id: userId });
+    if (!userExists) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const comment = new Comment({
+      user: userId,
+      text,
+      imageUrl,
+    });
 
-router.post("/", isAuth, async (req, res) => {
-  try {
-    const { imageId, text } = req.body;
-    const author = req.user.nickName;
-    const newComment = await addComment({ imageId, text, author });
-    res.status(201).json(newComment);
+    await comment.save();
+
+    res.status(201).json(comment);
   } catch (error) {
-    console.error("Error adding comment:", error.message);
-    res.status(500).json({ message: "Server error" });
+    console.error("Error creating comment:", error);
+    res.status(500).json({ message: "Failed to create comment" });
   }
 });
 
