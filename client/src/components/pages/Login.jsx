@@ -50,7 +50,7 @@ function Login() {
         if (response.ok) {
           const data = await response.json();
           login(data);
-          sessionStorage.setItem('accessToken', data.accessToken);
+          localStorage.setItem('accessToken', data.accessToken);
 
 
           setMessage("Login successful!");

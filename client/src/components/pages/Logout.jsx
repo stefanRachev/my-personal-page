@@ -9,7 +9,7 @@ const Logout = () => {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        sessionStorage.removeItem("accessToken");
+        localStorage.removeItem("accessToken");
 
         await logout();
 

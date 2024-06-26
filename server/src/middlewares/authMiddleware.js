@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
 
 exports.auth = (req, res, next) => {
-  const token = req.cookies.accessToken;
+  const token = req.cookies.authToken;
+  console.log(token);
+
 
   if (token) {
     try {
@@ -13,13 +15,14 @@ exports.auth = (req, res, next) => {
     }
   } else {
     next();
+    console.log("some fall");
   }
 };
 
-exports.isAuth = (req, res, next) => {
-  if (!req.user) {
-    console.log(req.user);
-    return res.redirect("/users/login");
-  }
-  next();
-};
+// exports.isAuth = (req, res, next) => {
+//   if (!req.user) {
+//     console.log(req.user);
+//     return res.redirect("/users/login");
+//   }
+//   next();
+// };
