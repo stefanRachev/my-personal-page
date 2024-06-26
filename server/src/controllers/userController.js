@@ -5,7 +5,7 @@ router.post("/register", async (req, res) => {
   try {
     const { email, password, nickName } = req.body;
     const result = await userService.register({ email, password, nickName });
-    console.log(result.accessToken);
+   
     res.cookie("authToken", result.accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -22,13 +22,12 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await userService.login({ email, password });
-    console.log(result.accessToken);
+   
     res.cookie("authToken", result.accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
-   
 
     res.json(result);
   } catch ({ message }) {

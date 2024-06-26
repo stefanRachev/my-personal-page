@@ -46,12 +46,12 @@ function Login() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formValues),
+          credentials: "include", 
         });
         if (response.ok) {
           const data = await response.json();
           login(data);
-          localStorage.setItem('accessToken', data.accessToken);
-
+          localStorage.setItem("accessToken", data.accessToken);
 
           setMessage("Login successful!");
           setFormValues(formInitialState);
