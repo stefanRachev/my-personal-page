@@ -1,67 +1,15 @@
-
 .containerHome {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  max-width: 1200px; 
   padding: 40px;
 }
 
-.poster {
-  margin-block: 20px;
-}
-
-.pic {
-  margin-block: 20px;
-  max-width: 100%;
-  height: auto;
-}
-
-.describeText {
-  text-align: center;
-  margin-block: 20px;
-}
-
-.openingTitle {
-  font-size: 36px;
-  color: #ff6600;
-  font-family: "Arial Black", sans-serif;
-  animation: bounce 1s infinite alternate;
-}
-
-.descriptive {
-  font-size: 20px;
-  color: #333;
-  font-family: "Arial", sans-serif;
-  font-weight: bold;
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 5px #ff6600;
-  }
-  50% {
-    text-shadow: 0 0 20px #ff6600;
-  }
-  100% {
-    text-shadow: 0 0 5px #ff6600;
-  }
-}
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   .containerHome {
-    padding: 50px;
+    padding: 80px; 
   }
 }
 
@@ -93,19 +41,14 @@
   }
 
   .pic {
-    max-height: 300px; /* Adjust height to ensure image is fully visible */
-    overflow: hidden;  /* Hide overflow to maintain layout */
+    max-height: 300px; 
+    overflow: hidden;  
+    object-fit: cover;
   }
 
-  .describeText {
-    margin-block: 10px;
-  }
-
-  .poster {
-    margin-block: 10px;
-  }
-
+  .describeText,
+  .poster,
   .pic {
-    margin-block: 10px;
+    margin-block: 10px; 
   }
 }
