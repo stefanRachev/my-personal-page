@@ -62,7 +62,8 @@ function Register() {
           setMessage("Registration successful!");
           setFormValues(formInitialState);
 
-          localStorage.setItem('accessToken', data.accessToken);
+          localStorage.setItem('accessToken', data);
+          
           navigate("/");
         } else {
           setMessage("Registration failed. Please try again.");

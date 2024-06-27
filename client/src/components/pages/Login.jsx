@@ -50,8 +50,10 @@ function Login() {
         });
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           login(data);
-          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem('accessToken', data);
+         
 
           setMessage("Login successful!");
           setFormValues(formInitialState);

@@ -12,6 +12,7 @@ const Logout = () => {
     const handleLogout = async () => {
       try {
         localStorage.removeItem("accessToken");
+        localStorage.removeItem("user")
 
         const response = await fetch(host + "/users/logout", {
           method: "GET",
