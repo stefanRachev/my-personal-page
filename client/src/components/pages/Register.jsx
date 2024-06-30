@@ -62,7 +62,7 @@ function Register() {
           setMessage("Registration successful!");
           setFormValues(formInitialState);
 
-          localStorage.setItem('accessToken', data);
+          localStorage.setItem('username', data.nickName);
           
           navigate("/");
         } else {

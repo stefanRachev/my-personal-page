@@ -11,8 +11,7 @@ const Logout = () => {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("user")
+        localStorage.removeItem("username");
 
         const response = await fetch(host + "/users/logout", {
           method: "GET",

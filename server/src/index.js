@@ -3,7 +3,6 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-//const { auth } = require("./middlewares/authMiddleware");
 const PORT = 3001;
 
 const app = express();
@@ -32,12 +31,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-//app.use(auth);
-
 app.get("/", (req, res) => {
   res.send("test ok");
 });
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`Server is running on Port ${PORT}....`));
+app.listen(PORT, () => console.log(`Server is running on Port ${PORT}....`));       
