@@ -3,9 +3,11 @@ import { useAuth } from "../../contexts/AuthContext";
 import styles from "./AboutMe.module.css";
 
 function AboutMe() {
-  
+  const { user, loading } = useAuth();
 
-  const { user } = useAuth();
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   if (!user) {
     return <Navigate to="/users/login" />;
