@@ -1,7 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./PersonallyForMe.module.css";
+import { useAuth } from "../../contexts/AuthContext";
 
 function PersonallyForMe() {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!user) {
+    return <Navigate to="/users/login" />;
+  }
+
   return (
     <div className={styles.aboutMeContainer}>
       <h2>About Me</h2>
@@ -14,13 +25,13 @@ function PersonallyForMe() {
           className={styles.image}
         />
         <p>
-          Sarah is my beloved dog, fate brought us together and since then we&apos;ve
-          been inseparable.
+          Sarah is my beloved dog, fate brought us together and since then
+          we&apos;ve been inseparable.
         </p>
 
         <Link to="/pet-gallery" className={styles.link}>
           View Pet Gallery
-        </Link>                                     
+        </Link>
       </div>
 
       <div className={styles.section}>

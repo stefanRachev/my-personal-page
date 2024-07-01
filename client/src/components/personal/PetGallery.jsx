@@ -6,7 +6,7 @@ import styles from "./PetGallery.module.css";
 import CommentForm from "./commentForm/CommentForm";
 
 const PetGallery = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [petImages, setPetImages] = useState([
@@ -41,6 +41,15 @@ const PetGallery = () => {
       comments: ["Walking with Sarah.", "Beautiful day for a walk."],
     },
   ]);
+
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!user) {
+    return <Navigate to="/users/login" />;
+  }
 
   if (!user) {
     return <Navigate to="/users/login" />;
