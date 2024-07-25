@@ -4,11 +4,16 @@ import styles from "./Navbar.module.css";
 import { useAuth } from "../../contexts/AuthContext";
 
 function Navbar() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   console.log("Logged in user:", user);
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  
 
   return (
     <nav className={styles.nav}>

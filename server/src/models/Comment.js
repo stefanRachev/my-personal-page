@@ -8,6 +8,7 @@ const commentSchema = new mongoose.Schema({
   },
   imageUrl: {
     type: String,
+    required: true,
   },
   text: {
     type: String,

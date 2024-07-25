@@ -5,6 +5,8 @@ import Modal from "./modal/Modal";
 import styles from "./PetGallery.module.css";
 import CommentForm from "./commentForm/CommentForm";
 
+const host = "http://localhost:3001";
+
 const PetGallery = () => {
   const { user, loading } = useAuth();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -42,7 +44,6 @@ const PetGallery = () => {
     },
   ]);
 
-
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -51,9 +52,7 @@ const PetGallery = () => {
     return <Navigate to="/users/login" />;
   }
 
-  if (!user) {
-    return <Navigate to="/users/login" />;
-  }
+  console.log("User object:", user);
 
   const openModal = (image) => {
     console.log("Opening modal for image:", image); // Log the image being opened
@@ -67,20 +66,21 @@ const PetGallery = () => {
   };
 
   const handleSubmitComment = async ({ imageId, text }) => {
-    console.log("Submitting comment:", { imageId, text }); // Log the comment being submitted
     try {
-      const response = await fetch("/api/comments", {
+      const response = await fetch(host + "/comments/comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           user: user._id,
-          text,
+          text: `${user.nickName}: ${text}`,
           imageUrl: selectedImage.imageUrl,
         }),
       });
-
+    
+  
+ 
       if (!response.ok) {
         throw new Error("Failed to add comment");
       }
@@ -94,6 +94,8 @@ const PetGallery = () => {
       console.error("Error adding comment:", error);
     }
   };
+
+  console.log("PetGallery user:", user); // Log user object
 
   return (
     <div className={styles.imageGallery}>
@@ -115,15 +117,16 @@ const PetGallery = () => {
         onClose={closeModal}
         image={selectedImage}
         comments={selectedImage ? selectedImage.comments : []}
-        userName={user.nickName} // Pass the userName to the modal
-      >
-        {selectedImage && (
-          <CommentForm
-            imageId={selectedImage.id}
-            onSubmit={handleSubmitComment}
-          />
-        )}
-      </Modal>
+        userName={user} // Подаваме целия обект на потребителя
+        onSubmit={handleSubmitComment}
+      />
+      {selectedImage && (
+        <CommentForm
+          imageId={selectedImage.id}
+          onSubmit={handleSubmitComment}
+          userName={user} // Подаване на user обекта като userName
+        />
+      )}
     </div>
   );
 };
