@@ -28,18 +28,38 @@ router.post("/comment", async (req, res) => {
   }
 });
 
-router.get("/comments/:imageUrl", async (req, res) => {
-  const { imageUrl } = req.params;
+// router.get("/comments/:imageUrl", async (req, res) => {
+//   const { imageUrl } = req.params;
+
+//   try {
+//     const comments = await Comment.find({ imageUrl }).populate(
+//       "user",
+//       "nickName"
+//     );
+//     res.json(comments);
+//   } catch (error) {
+//     res.status(500).json({ message: "Error fetching comments", error });
+//   }
+// });
+
+router.get('/', async (req, res) => {
+  const { imageUrl } = req.query;
+  
+  console.log('Received imageUrl:', imageUrl); // Логирайте imageUrl
+
+  if (!imageUrl) {
+    return res.status(400).json({ message: 'Image URL is required' });
+  }
 
   try {
-    const comments = await Comment.find({ imageUrl }).populate(
-      "user",
-      "nickName"
-    );
+    const comments = await Comment.find({ imageUrl }).populate('user', 'nickName');
+    console.log('Comments found:', comments); // Логирайте намерените коментари
     res.json(comments);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching comments", error });
+    console.error('Error fetching comments:', error); // Логирайте грешки
+    res.status(500).json({ message: 'Error fetching comments', error });
   }
 });
+
 
 module.exports = router;

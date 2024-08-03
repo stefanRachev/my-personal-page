@@ -44,6 +44,8 @@ const PetGallery = () => {
     },
   ]);
 
+ 
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -55,13 +57,13 @@ const PetGallery = () => {
   console.log("User object:", user);
 
   const openModal = (image) => {
-    console.log("Opening modal for image:", image); // Log the image being opened
+    //console.log("Opening modal for image:", image); // Log the image being opened
     setSelectedImage(image);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    console.log("Closing modal"); // Log closing modal
+    //console.log("Closing modal"); // Log closing modal
     setIsModalOpen(false);
   };
 
@@ -78,9 +80,7 @@ const PetGallery = () => {
           imageUrl: selectedImage.imageUrl,
         }),
       });
-    
-  
- 
+
       if (!response.ok) {
         throw new Error("Failed to add comment");
       }
@@ -95,7 +95,7 @@ const PetGallery = () => {
     }
   };
 
-  console.log("PetGallery user:", user); // Log user object
+  //console.log("PetGallery user:", user); // Log user object
 
   return (
     <div className={styles.imageGallery}>
