@@ -16,31 +16,31 @@ const PetGallery = () => {
       id: 1,
       imageUrl: "https://i.imgur.com/ruLoxNV.jpg",
       description: "Sarah enjoys the day at our home.",
-      comments: ["Lovely day!", "Sarah looks happy."],
+      comments: [],
     },
     {
       id: 2,
       imageUrl: "https://i.imgur.com/Or5SwCq.jpg",
       description: "Sarah taking a nap.",
-      comments: ["So cute!", "Sweet dreams, Sarah."],
+      comments: [],
     },
     {
       id: 3,
       imageUrl: "https://i.imgur.com/bIi0ShD.jpg",
       description: "Sarah playing with my sister.",
-      comments: ["Playful Sarah!", "Having fun with family."],
+      comments: [],
     },
     {
       id: 4,
       imageUrl: "https://i.imgur.com/WGeSBXl.jpg",
       description: "Sarah is curious.",
-      comments: ["What a curious dog!", "Exploring new things."],
+      comments: [],
     },
     {
       id: 5,
       imageUrl: "https://i.imgur.com/9RYlr0D.jpg",
       description: "Sarah is walking.",
-      comments: ["Walking with Sarah.", "Beautiful day for a walk."],
+      comments: [],
     },
   ]);
 
