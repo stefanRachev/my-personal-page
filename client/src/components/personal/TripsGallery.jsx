@@ -2,44 +2,56 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Modal from "./modal/Modal";
-import styles from "./PetGallery.module.css";
+import styles from "TripsGallery.module.css";
 import CommentForm from "./commentForm/CommentForm";
 
 const host = "http://localhost:3001";
 
-const PetGallery = () => {
+const TripsGallery = () => {
   const { user, loading } = useAuth();
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [petImages, setPetImages] = useState([
+  const [tripsImages, setTripsImages] = useState([
     {
       id: 1,
-      imageUrl: "https://i.imgur.com/ruLoxNV.jpg",
-      description: "Sarah enjoys the day at our home.",
+      imageUrl: "https://i.imgur.com/Kybqf54.jpg",
+      description: "A walk around Copenhagen, Denmark.",
       comments: [],
     },
     {
       id: 2,
-      imageUrl: "https://i.imgur.com/Or5SwCq.jpg",
-      description: "Sarah taking a nap.",
+      imageUrl: "https://i.imgur.com/MJobXo2.jpg",
+      description: "Old town.",
       comments: [],
     },
     {
       id: 3,
-      imageUrl: "https://i.imgur.com/bIi0ShD.jpg",
-      description: "Sarah playing with my sister.",
+      imageUrl: "https://i.imgur.com/U1GhvpH.jpg",
+      description: "Everyone is on wheels here.",
       comments: [],
     },
     {
       id: 4,
-      imageUrl: "https://i.imgur.com/WGeSBXl.jpg",
-      description: "Sarah is curious.",
+      imageUrl: "https://i.imgur.com/ypOEp6x.jpg",
+      description: "In the Copenhagen Mall.",
       comments: [],
     },
     {
       id: 5,
-      imageUrl: "https://i.imgur.com/9RYlr0D.jpg",
-      description: "Sarah is walking.",
+      imageUrl: "https://i.imgur.com/TuoVAIw.jpg",
+      description: "In the middle Balkans, Bulgaria.",
+      comments: [],
+    },
+    {
+      id: 6,
+      imageUrl: "https://i.imgur.com/n5PPgG6.jpg",
+      description: "A bit of peace around the town of Melnik.",
+      comments: [],
+    },
+    {
+      id: 7,
+      imageUrl: "https://i.imgur.com/HQeZTtK.jpg",
+      description: "Little laugh.",
       comments: [],
     },
   ]);
@@ -81,10 +93,10 @@ const PetGallery = () => {
         throw new Error("Failed to add comment");
       }
 
-      const updatedImages = petImages.map((img) =>
+      const updatedImages = tripsImages.map((img) =>
         img.id === imageId ? { ...img, comments: [...img.comments, text] } : img
       );
-      setPetImages(updatedImages);
+      setTripsImages(updatedImages);
       closeModal();
     } catch (error) {
       console.error("Error adding comment:", error);
@@ -93,7 +105,7 @@ const PetGallery = () => {
 
   return (
     <div className={styles.imageGallery}>
-      {petImages.map((image) => (
+      {tripsImages.map((image) => (
         <div
           key={image.id}
           className={styles.imageContainer}
@@ -125,4 +137,4 @@ const PetGallery = () => {
   );
 };
 
-export default PetGallery;
+export default TripsGallery;

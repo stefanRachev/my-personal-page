@@ -35,10 +35,10 @@ function PersonallyForMe() {
       </div>
 
       <div className={styles.section}>
-        <h3>My Holidays</h3>
+        <h3>My Trips</h3>
         <img
-          src="https://i.imgur.com/holiday1.jpg"
-          alt="Holiday"
+          src="https://i.imgur.com/l4oxGw2.jpg"
+          alt="Trips"
           className={styles.image}
         />
         <p>
@@ -46,7 +46,7 @@ function PersonallyForMe() {
           Here&apos;s a snapshot from my recent holiday adventure.
         </p>
         <Link to="/comments/holidays" className={styles.link}>
-          See Comments
+          View Trips Gallery
         </Link>
       </div>
 
