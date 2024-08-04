@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Modal from "./modal/Modal";
-import styles from "TripsGallery.module.css";
+import styles from "./TripsGallery.module.css";
 import CommentForm from "./commentForm/CommentForm";
 
 const host = "http://localhost:3001";

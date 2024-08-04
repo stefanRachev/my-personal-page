@@ -45,7 +45,7 @@ function PersonallyForMe() {
           I love exploring new places and experiencing different cultures.
           Here&apos;s a snapshot from my recent holiday adventure.
         </p>
-        <Link to="/comments/holidays" className={styles.link}>
+        <Link to="/trips-gallery" className={styles.link}>
           View Trips Gallery
         </Link>
       </div>
