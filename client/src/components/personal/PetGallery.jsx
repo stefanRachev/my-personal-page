@@ -104,6 +104,7 @@ const PetGallery = () => {
             alt={image.description}
             className={styles.image}
           />
+          <p className={styles.description}>{image.description}</p>{" "}
         </div>
       ))}
       <Modal

@@ -117,7 +117,7 @@ const TripsGallery = () => {
             className={styles.image}
           />
           <p className={styles.description}>{image.description}</p>{" "}
-          {/* Добавяме описание */}
+         
         </div>
       ))}
       <Modal
