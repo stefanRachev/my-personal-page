@@ -21,7 +21,6 @@ const CommentForm = ({ imageId, onSubmit, userName }) => {
     <form onSubmit={handleSubmit} className={styles.commentForm}>
       <div className={styles.commentUserInfo}>
         <span className={styles.commentUserName}>{userName.nickName}</span>{" "}
-   
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}

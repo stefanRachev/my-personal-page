@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Modal from "./modal/Modal";
 import styles from "./PetGallery.module.css";
-import CommentForm from "./commentForm/CommentForm";
+//import CommentForm from "./commentForm/CommentForm";
 
 const host = "http://localhost:3001";
 
@@ -115,13 +115,13 @@ const PetGallery = () => {
         userName={user} // Подаваме целия обект на потребителя
         onSubmit={handleSubmitComment}
       />
-      {selectedImage && (
+      {/* {selectedImage && (
         <CommentForm
           imageId={selectedImage.id}
           onSubmit={handleSubmitComment}
           userName={user} // Подаване на user обекта като userName
         />
-      )}
+      )} */}
     </div>
   );
 };
