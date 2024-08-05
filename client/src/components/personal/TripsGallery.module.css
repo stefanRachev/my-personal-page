@@ -19,6 +19,7 @@
     width: 100%;
     height: auto;                /* Промяна */
     object-fit: cover;
+    aspect-ratio: 4 / 3;
   }
   
   .description {
@@ -37,6 +38,7 @@
       width: 100%;
       height: auto;              /* Промяна */
       object-fit: cover;
+      aspect-ratio: 4 / 3;
     }
   }
   
@@ -50,6 +52,7 @@
       width: 100%;
       height: auto;              /* Промяна */
       object-fit: cover;
+      aspect-ratio: 4 / 3;
     }
   }
   
