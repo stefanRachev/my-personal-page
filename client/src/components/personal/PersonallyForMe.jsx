@@ -51,34 +51,18 @@ function PersonallyForMe() {
       </div>
 
       <div className={styles.section}>
-        <h3>Cycling Adventures</h3>
+        <h3>Write me</h3>
         <img
-          src="https://i.imgur.com/cycling1.jpg"
-          alt="Cycling"
+          src="https://i.imgur.com/eBs6XHN.jpg"
+          alt="Contact"
           className={styles.image}
         />
         <p>
-          Cycling is my passion. I enjoy exploring the countryside on my bike
-          and discovering new routes.
+          Want to get in touch? Send me a message directly, and I&apos;ll get back to
+          you as soon as possible.
         </p>
-        <Link to="/comments/cycling" className={styles.link}>
-          See Comments
-        </Link>
-      </div>
-
-      <div className={styles.section}>
-        <h3>My Hometown</h3>
-        <img
-          src="https://i.imgur.com/hometown1.jpg"
-          alt="Hometown"
-          className={styles.image}
-        />
-        <p>
-          I live in a beautiful town surrounded by nature. Here&apos;s a view
-          from my favorite spot in town.
-        </p>
-        <Link to="/comments/hometown" className={styles.link}>
-          See Comments
+        <Link to="/send-email" className={styles.link}>
+          Send Email
         </Link>
       </div>
     </div>
