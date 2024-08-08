@@ -13,6 +13,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import AboutMe from "./components/pages/AboutMe";
 import PetGallery from "./components/personal/PetGallery";
 import TripsGallery from "./components/personal/TripsGallery";
+import EmailForm from "./components/personal/EmailForm";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/pet-gallery" element={<PetGallery />} />
             <Route path="/trips-gallery" element={<TripsGallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/send-email" element={<EmailForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
