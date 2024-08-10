@@ -4,7 +4,6 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Home from "./components/pages/Home";
 import PersonallyForMe from "./components/personal/PersonallyForMe";
-import Contact from "./components/pages/Contact";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
@@ -35,7 +34,6 @@ function App() {
             />
             <Route path="/pet-gallery" element={<PetGallery />} />
             <Route path="/trips-gallery" element={<TripsGallery />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/send-email" element={<EmailForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

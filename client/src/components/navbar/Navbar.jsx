@@ -67,12 +67,6 @@ function Navbar() {
                 Login
               </NavLink>
             </li>
-
-            <li className={styles.navItem}>
-              <NavLink to="/contact" className={styles.navLink}>
-                Contact
-              </NavLink>
-            </li>
           </>
         )}
       </ul>
