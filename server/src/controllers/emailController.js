@@ -16,7 +16,7 @@ const sendEmail = async (req, res) => {
     from: email,
     to: process.env.EMAIL_USER,
     subject: subject,
-    text: `Име: ${name}\nИмейл: ${email}\nСъобщение: ${message}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   try {
