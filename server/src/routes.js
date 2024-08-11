@@ -7,7 +7,7 @@ const emailController = require("./controllers/emailController");
 router.use("/users", userController);
 router.use("/comments", commentController);
 router.use("/auth", authController);
-router.use("email", emailController);
+router.use("/email", emailController);
 
 router.use((req, res) => {
   res.status(404).send("Page not found");
