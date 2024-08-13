@@ -25,28 +25,11 @@ function Register() {
     setFormValues((state) => ({ ...state, [e.target.id]: e.target.value }));
   };
 
-  // const validateForm = () => {
-  //   const newErrors = {};
-  //   if (!formValues.email) {
-  //     newErrors.email = "Email is required";
-  //   }
-  //   if (!formValues.password) {
-  //     newErrors.password = "Password is required";
-  //   }
-  //   if (formValues.password !== formValues.repeatPassword) {
-  //     newErrors.repeatPassword = "Passwords do not match";
-  //   }
-  //   if (!formValues.nickName) {
-  //     newErrors.nickName = "Name is required";
-  //   }
-  //   return newErrors;
-  // };
-
   const logHandler = async (e) => {
     e.preventDefault();
 
     const validationErrors = validateRegistrationForm(formValues);
-    //const validationErrors = validateForm();
+   
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -70,10 +53,10 @@ function Register() {
 
           navigate("/");
         } else {
-          const errorData = await response.json(); // Извличане на съобщението за грешка от сървъра
+          const errorData = await response.json();
           setMessage(
             errorData.message || "Registration failed. Please try again."
-          ); // Показване на съобщението за грешка
+          ); 
         }
       } catch (error) {
         setMessage("An error occurred. Please try again later.");
