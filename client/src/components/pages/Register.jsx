@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Register.module.css";
-import { validateRegistrationForm } from "../../services/validationService"
+import { validateRegistrationForm } from "../../services/validationService";
 
 const host = "http://localhost:3001";
 
@@ -42,15 +42,12 @@ function Register() {
   //   return newErrors;
   // };
 
-
-
-
   const logHandler = async (e) => {
     e.preventDefault();
 
-    const validationErrors = validateRegistrationForm(formValues)
+    const validationErrors = validateRegistrationForm(formValues);
     //const validationErrors = validateForm();
-    
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
@@ -69,11 +66,14 @@ function Register() {
           setMessage("Registration successful!");
           setFormValues(formInitialState);
 
-          localStorage.setItem('username', data.nickName);
-          
+          localStorage.setItem("username", data.nickName);
+
           navigate("/");
         } else {
-          setMessage("Registration failed. Please try again.");
+          const errorData = await response.json(); // Извличане на съобщението за грешка от сървъра
+          setMessage(
+            errorData.message || "Registration failed. Please try again."
+          ); // Показване на съобщението за грешка
         }
       } catch (error) {
         setMessage("An error occurred. Please try again later.");
@@ -158,4 +158,4 @@ function Register() {
   );
 }
 
-export default Register;      
+export default Register;

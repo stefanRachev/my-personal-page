@@ -3,6 +3,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.register = async (userData) => {
+  
+  const existingUser = await User.findOne({ email: userData.email });
+  if (existingUser) {
+    throw new Error("Email already registered");
+  }
+
   const user = await User.create(userData);
 
   const result = getResult(user);
@@ -28,7 +34,7 @@ exports.login = async ({ email, password }) => {
 
 function getResult(user) {
   const payload = { _id: user._id, email: user.email, nickName: user.nickName };
-  const token = jwt.sign(payload, "SOME_SECRET", { expiresIn: "1h" }); 
+  const token = jwt.sign(payload, "SOME_SECRET", { expiresIn: "1h" });
 
   const result = {
     _id: user._id,
