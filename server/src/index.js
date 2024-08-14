@@ -1,8 +1,13 @@
+
+require('dotenv').config();
+console.log("EMAIL_USER:", process.env.EMAIL_USER); // Трябва да видите вашия имейл
+console.log("EMAIL_PASS:", process.env.EMAIL_PASS); // Трябва да видите паролата за приложения
 const cors = require("cors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+
 const PORT = 3001;
 
 const app = express();

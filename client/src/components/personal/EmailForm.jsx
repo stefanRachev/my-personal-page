@@ -25,7 +25,7 @@ const EmailForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`${host}/send-email`, {
+    const response = await fetch(host + "/email/send", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
