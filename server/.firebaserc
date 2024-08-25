@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "stefan-works"
+  },
+  "targets": {},
+  "etags": {
+    "stefan-works": {
+      "extensionInstances": {}
+    }
+  },
+  "dataconnectEmulatorConfig": {}
+}
