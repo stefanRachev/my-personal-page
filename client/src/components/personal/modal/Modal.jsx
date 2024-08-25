@@ -1,10 +1,7 @@
-
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import CommentForm from "../commentForm/CommentForm";
-
-const host = "http://localhost:3001";
 
 const Modal = ({ isOpen, onClose, image, userName, onSubmit }) => {
   const [comments, setComments] = useState([]);
@@ -14,7 +11,9 @@ const Modal = ({ isOpen, onClose, image, userName, onSubmit }) => {
       if (image) {
         try {
           const response = await fetch(
-            `${host}/comments?imageUrl=${encodeURIComponent(image.imageUrl)}`
+            `${
+              import.meta.env.VITE_API_URL
+            }/comments?imageUrl=${encodeURIComponent(image.imageUrl)}`
           );
           if (!response.ok) {
             throw new Error("Failed to fetch comments");

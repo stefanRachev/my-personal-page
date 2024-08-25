@@ -3,8 +3,6 @@ import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./EmailForm.module.css";
 
-const host = "http://localhost:3001";
-
 const EmailForm = () => {
   const { user, loading } = useAuth();
 
@@ -19,26 +17,23 @@ const EmailForm = () => {
     return <Navigate to="/users/login" />;
   }
 
-  console.log(user);
-
-  // Функция за обработка на изпращането на формата
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(host + "/email/send", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/email/send`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: user.nickName, // Използване на името на потребителя от контекста
-        email: user.email, // Използване на имейла на потребителя от контекста
+        name: user.nickName,
+        email: user.email,
         subject,
         message,
       }),
     });
 
-    // Успешно или неуспешно изпращане на имейла
+   
     if (response.ok) {
       alert("Email sent successfully!");
       setSubject("");
@@ -48,7 +43,7 @@ const EmailForm = () => {
     }
   };
 
-  // Връщане на JSX компонента за формата
+
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div>

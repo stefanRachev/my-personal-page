@@ -5,8 +5,6 @@ import Modal from "./modal/Modal";
 import styles from "./TripsGallery.module.css";
 //import CommentForm from "./commentForm/CommentForm";
 
-const host = "http://localhost:3001";
-
 const TripsGallery = () => {
   const { user, loading } = useAuth();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -64,8 +62,6 @@ const TripsGallery = () => {
     return <Navigate to="/users/login" />;
   }
 
-  console.log("User object:", user);
-
   const openModal = (image) => {
     setSelectedImage(image);
     setIsModalOpen(true);
@@ -77,17 +73,20 @@ const TripsGallery = () => {
 
   const handleSubmitComment = async ({ imageId, text }) => {
     try {
-      const response = await fetch(host + "/comments/comment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: user._id,
-          text: `${user.nickName}: ${text}`,
-          imageUrl: selectedImage.imageUrl,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/comments/comment`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user: user._id,
+            text: `${user.nickName}: ${text}`,
+            imageUrl: selectedImage.imageUrl,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add comment");
@@ -117,7 +116,6 @@ const TripsGallery = () => {
             className={styles.image}
           />
           <p className={styles.description}>{image.description}</p>{" "}
-         
         </div>
       ))}
       <Modal
@@ -128,13 +126,6 @@ const TripsGallery = () => {
         userName={user} // Подаваме целия обект на потребителя
         onSubmit={handleSubmitComment}
       />
-      {/* {selectedImage && (
-        <CommentForm
-          imageId={selectedImage.id}
-          onSubmit={handleSubmitComment}
-          userName={user} // Подаване на user обекта като userName
-        />
-      )} */}
     </div>
   );
 };

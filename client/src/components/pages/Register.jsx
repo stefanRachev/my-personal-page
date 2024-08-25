@@ -4,8 +4,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Register.module.css";
 import { validateRegistrationForm } from "../../services/validationService";
 
-const host = "http://localhost:3001";
-
 const formInitialState = {
   email: "",
   password: "",
@@ -29,20 +27,22 @@ function Register() {
     e.preventDefault();
 
     const validationErrors = validateRegistrationForm(formValues);
-   
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch(host + "/users/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formValues),
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/users/register`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formValues),
+            credentials: "include",
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           login(data);
@@ -56,7 +56,7 @@ function Register() {
           const errorData = await response.json();
           setMessage(
             errorData.message || "Registration failed. Please try again."
-          ); 
+          );
         }
       } catch (error) {
         setMessage("An error occurred. Please try again later.");

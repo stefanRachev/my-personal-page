@@ -5,7 +5,7 @@ import Modal from "./modal/Modal";
 import styles from "./PetGallery.module.css";
 //import CommentForm from "./commentForm/CommentForm";
 
-const host = "http://localhost:3001";
+
 
 const PetGallery = () => {
   const { user, loading } = useAuth();
@@ -52,7 +52,6 @@ const PetGallery = () => {
     return <Navigate to="/users/login" />;
   }
 
-  console.log("User object:", user);
 
   const openModal = (image) => {
     setSelectedImage(image);
@@ -65,7 +64,7 @@ const PetGallery = () => {
 
   const handleSubmitComment = async ({ imageId, text }) => {
     try {
-      const response = await fetch(host + "/comments/comment", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/comments/comment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,16 +111,9 @@ const PetGallery = () => {
         onClose={closeModal}
         image={selectedImage}
         comments={selectedImage ? selectedImage.comments : []}
-        userName={user} // Подаваме целия обект на потребителя
+        userName={user} 
         onSubmit={handleSubmitComment}
       />
-      {/* {selectedImage && (
-        <CommentForm
-          imageId={selectedImage.id}
-          onSubmit={handleSubmitComment}
-          userName={user} // Подаване на user обекта като userName
-        />
-      )} */}
     </div>
   );
 };

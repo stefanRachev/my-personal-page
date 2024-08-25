@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
-const host = "http://localhost:3001";
-
 const Logout = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
@@ -13,10 +11,13 @@ const Logout = () => {
       try {
         localStorage.removeItem("username");
 
-        const response = await fetch(host + "/users/logout", {
-          method: "GET",
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/users/logout`,
+          {
+            method: "GET",
+            credentials: "include",
+          }
+        );
 
         if (response.ok) {
           await logout();

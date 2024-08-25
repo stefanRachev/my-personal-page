@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const host = "http://localhost:3001";
+
 
 const AuthContext = createContext(null);
 
@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(host + "/auth/validate-token", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/validate-token`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

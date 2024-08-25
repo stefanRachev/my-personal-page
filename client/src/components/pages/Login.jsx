@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from "./Login.module.css";
 
-const host = "http://localhost:3001";
-
 const formInitialState = {
   email: "",
   password: "",
@@ -40,17 +38,20 @@ function Login() {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch(host + "/users/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formValues),
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/users/login`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formValues),
+            credentials: "include",
+          }
+        );
         if (response.ok) {
           const data = await response.json();
-          
+
           console.log(data);
 
           localStorage.setItem("username", data.nickName);
