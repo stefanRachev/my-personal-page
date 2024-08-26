@@ -19,7 +19,7 @@ const Modal = ({ isOpen, onClose, image, userName, onSubmit }) => {
             throw new Error("Failed to fetch comments");
           }
           const commentsData = await response.json();
-          setComments(commentsData.map((comment) => comment.text));
+          setComments(commentsData); //new
         } catch (error) {
           console.error("Error fetching comments:", error);
         }
@@ -50,9 +50,12 @@ const Modal = ({ isOpen, onClose, image, userName, onSubmit }) => {
           <h2>Comments</h2>
           <ul className={styles.commentsList}>
             {comments.length > 0 ? (
-              comments.map((comment, index) => (
-                <li key={index} className={styles.commentItem}>
-                  {comment}
+              comments.map((comment) => (
+                <li key={comment._id} className={styles.commentItem}>
+                  <div>{comment.text}</div>
+                  <div className={styles.commentTimestamp}>
+                    {new Date(comment.createdAt).toLocaleString()}
+                  </div>{" "}
                 </li>
               ))
             ) : (

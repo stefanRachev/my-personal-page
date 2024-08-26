@@ -7,11 +7,16 @@ const CommentForm = ({ imageId, onSubmit, userName }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted with:", {
+
+    const comment = {
       imageId,
-      text: `${userName.nickName}: ${text}`, // Променено за да взема nickName
-    });
-    onSubmit({ imageId, text });
+      text,
+      timestamp: new Date().toISOString(),
+    };
+
+    console.log("Form submitted with:", comment);
+
+    onSubmit(comment);
     setText("");
   };
 

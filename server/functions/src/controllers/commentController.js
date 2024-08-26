@@ -1,10 +1,9 @@
 const router = require("express").Router();
-const Comment = require("../models/Comments");
+const Comment = require("../models/Comment");
 const User = require("../models/User");
 
 router.post("/comment", async (req, res) => {
   const { user: userId, text, imageUrl } = req.body;
-
 
   try {
     const userExists = await User.exists({ _id: userId });
@@ -15,6 +14,7 @@ router.post("/comment", async (req, res) => {
       user: userId,
       text,
       imageUrl,
+      createdAt: new Date(),
     });
 
     await comment.save();
@@ -26,24 +26,24 @@ router.post("/comment", async (req, res) => {
   }
 });
 
-
-
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   const { imageUrl } = req.query;
-  
+
   if (!imageUrl) {
-    return res.status(400).json({ message: 'Image URL is required' });
+    return res.status(400).json({ message: "Image URL is required" });
   }
 
   try {
-    const comments = await Comment.find({ imageUrl }).populate('user', 'nickName');
-    
+    const comments = await Comment.find({ imageUrl }).populate(
+      "user",
+      "nickName"
+    );
+
     res.json(comments);
   } catch (error) {
-    console.error('Error fetching comments:', error); 
-    res.status(500).json({ message: 'Error fetching comments', error });
+    console.error("Error fetching comments:", error);
+    res.status(500).json({ message: "Error fetching comments", error });
   }
 });
-
 
 module.exports = router;
