@@ -9,7 +9,9 @@ router.post("/register", async (req, res) => {
     res.cookie("authToken", result.accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      secure: false,
       maxAge: 24 * 60 * 60 * 1000, // 1 day
+      sameSite: 'none'
     });
 
     res.status(201).json(result);
@@ -27,6 +29,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
+      sameSite: 'none'
     });
 
     res.status(200).json(result);

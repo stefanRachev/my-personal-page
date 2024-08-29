@@ -3,9 +3,6 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Modal from "./modal/Modal";
 import styles from "./PetGallery.module.css";
-//import CommentForm from "./commentForm/CommentForm";
-
-
 
 const PetGallery = () => {
   const { user, loading } = useAuth();

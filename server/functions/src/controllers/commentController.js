@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const Comment = require("../models/Comment");
+const { isAuthenticated } = require("../middlewares/authMiddleware");
+const Comment = require("../models/Comments");
 const User = require("../models/User");
 
 router.post("/comment", async (req, res) => {
@@ -45,5 +46,71 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Error fetching comments", error });
   }
 });
+
+
+
+router.put("/comment/:id", isAuthenticated, async (req, res) => {
+  const { id } = req.params; 
+  const { text } = req.body; 
+
+  try {
+    const comment = await Comment.findById(id);
+
+    console.log("Comment ID from request:", id);
+    console.log("Fetched comment from DB:", comment);
+
+    if (!comment) {
+      return res.status(404).json({ message: "Comment not found" });
+    }
+
+    console.log("Logged-in user ID:", req.user._id);
+    console.log("Comment creator ID:", comment.user);
+
+    if (comment.user.toString() !== req.user._id.toString()) {
+      console.log("Unauthorized attempt to edit comment.");
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
+    comment.text = text; 
+    await comment.save();
+
+    res.status(200).json(comment);
+  } catch (error) {
+    console.error("Error updating comment:", error);
+    res.status(500).json({ message: "Failed to update comment" });
+  }
+});
+
+router.delete("/comment/:id", isAuthenticated, async (req, res) => {
+  const { id } = req.params; 
+
+  try {
+    const comment = await Comment.findById(id);
+
+    console.log("Comment ID from request:", id);
+    console.log("Fetched comment from DB:", comment);
+
+    if (!comment) {
+      return res.status(404).json({ message: "Comment not found" });
+    }
+
+    console.log("Logged-in user ID:", req.user._id);
+    console.log("Comment creator ID:", comment.user);
+
+    if (comment.user.toString() !== req.user._id.toString()) {
+      console.log("Unauthorized attempt to delete comment.");
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+
+    await Comment.deleteOne({ _id: id });
+
+    res.status(200).json({ message: "Comment deleted" });
+  } catch (error) {
+    console.error("Error deleting comment:", error);
+    res.status(500).json({ message: "Failed to delete comment" });
+  }
+});
+
+
 
 module.exports = router;

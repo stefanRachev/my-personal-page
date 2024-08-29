@@ -33,7 +33,6 @@ const EmailForm = () => {
       }),
     });
 
-   
     if (response.ok) {
       alert("Email sent successfully!");
       setSubject("");
@@ -42,7 +41,6 @@ const EmailForm = () => {
       alert("Failed to send email.");
     }
   };
-
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+
 import styles from "./CommentForm.module.css";
 
 const CommentForm = ({ imageId, onSubmit, userName }) => {
+
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
@@ -14,13 +16,10 @@ const CommentForm = ({ imageId, onSubmit, userName }) => {
       timestamp: new Date().toISOString(),
     };
 
-    console.log("Form submitted with:", comment);
-
     onSubmit(comment);
     setText("");
   };
 
-  console.log("CommentForm props:", { imageId, onSubmit, userName });
 
   return (
     <form onSubmit={handleSubmit} className={styles.commentForm}>

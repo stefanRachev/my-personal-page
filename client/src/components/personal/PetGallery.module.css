@@ -2,13 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; 
-  padding-bottom: 20px; 
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
 .imageContainer {
-  display: flex;               /* Промяна */
-  flex-direction: column;      /* Промяна */
+  display: flex;
+  flex-direction: column;
   width: 500px;
   max-width: 500px;
   margin: 10px;
@@ -17,7 +17,7 @@
 
 .image {
   width: 100%;
-  height: auto;                /* Промяна */
+  height: auto;
   object-fit: cover;
   aspect-ratio: 4 / 3;
 }
@@ -32,11 +32,11 @@
   .imageContainer {
     width: calc(100% - 10px);
     max-width: 100%;
-    margin: 5px 0; 
+    margin: 5px 0;
   }
   .image {
     width: 100%;
-    height: auto;              /* Промяна */
+    height: auto;
     object-fit: cover;
     aspect-ratio: 4 / 3;
   }
@@ -46,13 +46,19 @@
   .imageContainer {
     width: calc(100% - 10px);
     max-width: 100%;
-    margin: 5px 0; 
+    margin: 10px 0; 
+    padding-bottom: 10px; 
   }
+
   .image {
     width: 100%;
-    height: auto;              /* Промяна */
+    height: auto;
     object-fit: cover;
     aspect-ratio: 4 / 3;
+  }
+
+  .description {
+    margin-bottom: 10px;
   }
 }
 

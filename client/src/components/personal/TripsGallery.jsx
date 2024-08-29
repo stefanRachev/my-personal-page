@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Modal from "./modal/Modal";
 import styles from "./TripsGallery.module.css";
-//import CommentForm from "./commentForm/CommentForm";
 
 const TripsGallery = () => {
   const { user, loading } = useAuth();
@@ -123,7 +122,7 @@ const TripsGallery = () => {
         onClose={closeModal}
         image={selectedImage}
         comments={selectedImage ? selectedImage.comments : []}
-        userName={user} // Подаваме целия обект на потребителя
+        userName={user}
         onSubmit={handleSubmitComment}
       />
     </div>

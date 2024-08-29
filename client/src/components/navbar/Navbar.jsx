@@ -11,10 +11,6 @@ function Navbar() {
     return <p>Loading...</p>;
   }
 
-  console.log("Logged in user:", user);
-
-  
-
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.title}>
